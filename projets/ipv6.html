@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuryBytes</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/ipv6.css">
+  </head>
+
+  <body>
+
+    <header class="header">
+        <a href="#" class="logo">FuryBytes</a>
+  
+        <i class="bx bx-menu" id="menu-icon"></i>
+  
+        <nav class="navbar">
+          <a href="#introduction" class="active">Sommaire</a>
+          <a href="#about">A propos</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Projets</a>
+          <a href="#contact">Contact</a>
+  
+        </nav>
+      </header>
+
+    <section class="introduction" id="introduction">
+      <div class="introduction-content">
+        <h1>Présentation de <span>IPv6</span></h1>
+        <br />
+        <h3>Objectifs du projet</h3>
+        <br />
+        <p>
+            Ce présent TP sur IPv6 a pour objectif de comprendre et à mettre en pratique les concepts clés liés à l'IPv6.
+            Vous apprendrez à configurer un serveur DNSv6 pour résoudre les noms de domaine en adresses IPv6 et un serveur HTTPv6 pour fournir des services web via IPv6.
+            Vous découvrirez également comment configurer un serveur proxy pour filtrer et contrôler l'accès aux ressources Internet, ainsi que comment mettre en place un WAN et un peering BGP pour connecter plusieurs réseaux IPv6 ensemble.
+            À la fin de ce TP, vous devriez avoir acquis une compréhension approfondie des concepts et des compétences nécessaires pour configurer un environnement IPv6 complet et des services Internet associés.
+        </p>
+        <br />
+        <h3>Sommaire</h3>
+        <br />
+        <ul id="sommaire">
+            <li><i class='bx bxs-check-shield'></i>Introduction à IPv6</li>
+            <li><i class='bx bxs-check-shield'></i>Configuration d'adresses lien-local</li>
+            <li><i class='bx bxs-check-shield'></i>Acquisition d'une adresse IPv6 globale</li>
+            <li><i class='bx bxs-check-shield'></i>Mise en place de la partie WAN</li>
+            <li><i class='bx bxs-check-shield'></i>Mise en place du peering BGP</li>
+            <li><i class='bx bxs-check-shield'></i>DNSv6</li>
+            <li><i class='bx bxs-check-shield'></i>Service HTTP</li>
+            <li><i class='bx bxs-check-shield'></i>Proxy HTTP</li>
+        </ul>
+        <br />
+        <h3>Introduction à IPv6</h3>
+        <br />
+        <p>
+            IPv6 a été créé pour résoudre les limites de la version précédente d'Internet Protocol, IPv4. L'explosion de l'utilisation d'Internet a entraîné une croissance exponentielle du nombre de périphériques connectés, tels que les ordinateurs, les téléphones portables, les tablettes, les objets connectés, etc. Avec IPv4, il y avait un nombre limité d'adresses IP disponibles, ce qui signifiait que les utilisateurs devaient partager des adresses IP et utiliser des techniques de traduction d'adresses réseau pour permettre à plusieurs périphériques de communiquer sur Internet.
+            IPv6 a été créé pour remédier à cette limitation en introduisant un espace d'adressage IP considérablement plus grand. Le nouveau format d'adresse IPv6 permet de prendre en charge des millions de milliards de périphériques connectés à Internet. Cela permet une allocation plus efficace des adresses IP et réduit la nécessité de recourir à des techniques de traduction d'adresses réseau.
+            En ce qui concerne les adresses IPv6, elles sont représentées par une chaîne hexadécimale de 128 bits, ce qui donne 2^128 adresses potentielles.
+
+            Les adresses IPv6 sont divisées en plusieurs types, dont les adresses link-local et les adresses global unicast. Ces types d'adresses ont des fonctions différentes et sont créés de manière différente.
+            Les adresses link-local IPv6 sont utilisées pour permettre la communication entre des périphériques sur un réseau local sans avoir besoin d'un routeur ou d'un serveur DHCP. Ces adresses sont uniquement valides sur le réseau local et ne sont pas routables à l'extérieur du réseau. Les adresses link-local commencent par le préfixe "fe80", suivi d'une identité d'interface de 64 bits qui est normalement basée sur l'adresse MAC de l'interface réseau. Les adresses link-local sont automatiquement attribuées par les périphériques lorsqu'ils sont configurés avec IPv6, sans nécessiter l'intervention d'un serveur DHCP.
+            Les adresses global unicast IPv6 sont utilisées pour permettre la communication entre des périphériques sur différents réseaux, tels que des réseaux d'entreprise ou Internet. Les adresses global unicast sont routables à l'extérieur du réseau local et sont attribuées par une autorité de registre de l'Internet, comme l'IANA. Les adresses global unicast IPv6 sont divisées en plusieurs préfixes de réseau, tels que le préfixe 2000::/3, qui est utilisé pour les adresses globales unicast. Ces préfixes sont alloués aux fournisseurs de services Internet et aux entreprises, qui les utilisent ensuite pour créer des sous-réseaux et attribuer des adresses IP à leurs périphériques.
+        </p>
+        <deckgo-highlight-code language="css">
+            <code slot="code">
+            *{
+            margin: 0px;
+            padding: 0px;
+            font-family: "Poppins";
+            }
+            .container{
+            width: 100%;
+            height: 100%;
+            }
+            </code>
+        </deckgo-highlight-code>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 by FuryBytes | All Rights Reserved.</p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+
+    <!-- code snippet -->
+    <script type="module" src="https://unpkg.com/@deckdeckgo/highlight-code@latest/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"></script>
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
